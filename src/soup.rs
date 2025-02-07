@@ -2,9 +2,10 @@ use core::fmt;
 use std::fmt::{Debug, Display};
 
 use crate::config;
-use lambda_calculus::{abs, app, Term, Var};
+use lambda_calculus::{abs, app, Term, Var, parse, Classic};
 use rand::{Rng, SeedableRng};
 use rand_chacha::ChaCha8Rng;
+use pyo3::prelude::*;  // Ensures PyResult and other PyO3 utilities are available 
 
 /// The principal AlChemy object. The `Soup` struct contains a set of
 /// lambda expressions, and rules for composing and filtering them.
@@ -118,10 +119,26 @@ impl Soup {
 
     /// Introduce all expressions in `expressions` into the soup, without
     /// reduction.
+    //pub fn perturb(&mut self, expressions: impl IntoIterator<Item = Term>) {
+    //    self.expressions
+    //        .extend(expressions.into_iter().filter(|e| !e.has_free_variables()));
+    //}
     pub fn perturb(&mut self, expressions: impl IntoIterator<Item = Term>) {
-        self.expressions
-            .extend(expressions.into_iter().filter(|e| !e.has_free_variables()));
+        let mut valid_expressions = Vec::new();
+        
+        for e in expressions {
+            if e.has_free_variables() {
+                println!("Filtered out (contains free variables): {:?}", e);
+            } else {
+                println!("Accepted expression: {:?}", e);
+                valid_expressions.push(e);
+            }
+        }
+        
+        println!("Number of valid expressions added: {}", valid_expressions.len());
+        self.expressions.extend(valid_expressions);
     }
+    
 
     /// Return the result of ((`rule` `left`) `right`), up to a limit of
     /// `self.reduction_limit`.
@@ -407,3 +424,4 @@ impl fmt::Display for ReactionError {
 }
 
 impl std::error::Error for ReactionError {}
+

@@ -130,9 +130,8 @@ impl PySoup {
     fn perturb(&mut self, expressions: Vec<String>) -> PyResult<()> {
         let terms = expressions
             .into_iter()
-            .map(|s| parse(&s, Classic).unwrap())
-            .collect::<Vec<Term>>();
-        self.inner.perturb(terms);
+            .filter_map(|s| parse(&s, Classic).ok());
+        self.inner.perturb(terms);  // Pass iterator directly
         Ok(())
     }
 

@@ -20,10 +20,14 @@ def test_soup():
     soup = alchemy.PySoup()
     print("Empty PySoup instance created.")
     print("Initial length of soup:", soup.len())
-    soup.perturb(["x", "y", "x y", "lambda x. x"])# reformat to make sure expressions datatypes are consistent going back and forth going through maturin
+    
+    valid_expressions = ["λx.x", "λx.λy.xy", "(λx.x) y", "λx.λy.(yx)", "λf.λx.(f (f x))"]
+    soup.perturb(valid_expressions)
+    
     print("Soup after perturbation:", soup.expressions())
     print("Unique expressions:", soup.unique_expressions())
     print("Population entropy:", soup.population_entropy())
+
 
 def test_btree_gen():
     print("Testing PyBTreeGen:")
