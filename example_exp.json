@@ -1,0 +1,12 @@
+{
+    "total_collisons": 1000,
+    "polling_frequency": 10,
+    "input_expressions": {
+        "generator": "from_file",
+        "params": {
+            "filename": "test_exprs.txt"
+        }
+    },
+    "measurements": ["entropy", "unique_expressions"]
+
+}
