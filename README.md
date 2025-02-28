@@ -11,7 +11,8 @@
 - Document functionality that exists
 
 ## Visualization
-- Check how the database is being generated, 0 unique expressions 0 entropy etc 
+- Check how the database is being generated, 0 unique expressions 0 entropy etc
+- View state "Histogram" at a specified collision number. 
 - Design new experiments tab - output to json 
 - Think how to host this as a server: we want to enable users to locally, design experiments in the GUI, run the experiment, and then visualize those new results. 
 - We want to log (and possibly hash) inputs + outputs + timestamps. 
