@@ -1,6 +1,10 @@
 use pyo3::prelude::*;
 use pyo3::wrap_pyfunction;
 use serde::{Deserialize, Serialize};
+use crate::soup::generate_random_expression;
+use rand::SeedableRng;
+use rand_chacha::ChaCha8Rng;
+
 
 
 // --- Module Imports ---
@@ -109,6 +113,7 @@ impl From<PyStandardization> for RustStandardization {
 #[pyclass]
 pub struct PySoup {
     inner: Soup,
+     
 }
 
 #[pymethods]
@@ -173,6 +178,18 @@ impl PySoup {
     fn population_entropy(&self) -> f32 {
         self.inner.population_entropy()
     }
+
+    fn generate_random_expressions(&mut self, count: usize, max_depth: usize) -> Vec<String> {
+        let mut expressions = Vec::new();
+        for _ in 0..count {
+            let mut rng = ChaCha8Rng::from_seed([0; 32]);  // Create a new RNG every time
+            let expr = generate_random_expression(&mut rng, max_depth);
+            expressions.push(expr.to_string());
+            self.inner.perturb(vec![expr]);
+        }
+        expressions
+    }
+    
 }
 
 // --- BTreeGen Wrapper ---

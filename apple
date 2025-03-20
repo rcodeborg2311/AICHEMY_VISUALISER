@@ -1,0 +1,11 @@
+{
+    "total_collisons": 5000,
+    "polling_frequency": 10,
+    "input_expressions": {
+        "generator": "BTree",
+        "params": {}
+    },
+    "measurements": [
+        "entropy"
+    ]
+}

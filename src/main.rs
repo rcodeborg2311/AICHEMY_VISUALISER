@@ -4,6 +4,8 @@ use generators::BTreeGen;
 use lambda_calculus::*;
 use std::fs::{read_to_string, File};
 use std::io::{self, BufRead, BufReader, Write};
+use crate::soup::generate_random_expression;
+
 
 /// Simulation analysis
 mod analysis;

@@ -82,10 +82,37 @@ pub fn reduce_with_limit(
     Ok(n)
 }
 
+pub fn generate_random_expression(rng: &mut ChaCha8Rng, max_depth: usize) -> Term {
+    if max_depth == 0 {
+        return Term::Var(rng.gen_range(1..4)); // Generate a variable with a random index between 1 and 3
+    }
+
+    match rng.gen_range(0..3) {
+        0 => Term::Var(rng.gen_range(1..4)), // Random variable
+        1 => {
+            let sub_expr = generate_random_expression(rng, max_depth - 1);
+            abs(sub_expr) // Abstraction
+        }
+        _ => {
+            let left = generate_random_expression(rng, max_depth - 1);
+            let right = generate_random_expression(rng, max_depth - 1);
+            app(left, right) // Application
+        }
+    }
+}
+
+
 impl Soup {
     /// Generate an empty soup with the following configuration options:
     pub fn new() -> Self {
         Soup::from_config(&config::Reactor::new())
+    }
+
+    pub fn generate_random_expressions(&mut self, count: usize, max_depth: usize) {
+        for _ in 0..count {
+            let expr = generate_random_expression(&mut self.rng, max_depth);
+            self.expressions.push(expr);
+        }
     }
 
     /// Generate an empty soup from a given `config` object.
