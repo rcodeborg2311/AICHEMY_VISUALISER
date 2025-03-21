@@ -355,7 +355,7 @@ def load_btree_expressions(params: dict) -> list:
     max_fv = params.get("max_free_vars", 3)
     std_type = params.get("standardization", "prefix")
     seed_value = params.get("seed", 0)
-    num_expr = params.get("num_expressions", 10)
+    num_expr = params.get("num_expressions", 1000)
 
     # Create the BTree generator configuration.
     # The Rust side expects a 32-byte seed; for simplicity, we just place `seed_value`
@@ -506,42 +506,110 @@ def single_experiment(config: dict) -> dict:
 
             results_data[coll_key] = step_data
 
+    
+    # Grab the last collision key only
+    # Include both full history and final snapshot
+    last_collision_key = sorted(results_data.keys(), key=lambda x: int(x.split("_")[-1]))[-1]
+    last_collision = results_data[last_collision_key]
+
     return {
         "config": config,
-        "seed_used": seed_used,  # Include the seed info if relevant
+        "seed_used": seed_used,
         "generated_expressions": expressions,
-        "collisions_data": results_data
+        "collisions_data": results_data,
+        "last_state": {
+            last_collision_key: last_collision
+        }
     }
 
 
 def main():
     """
-    Main entry point:
-      1) Read experiment config from JSON (passed via command-line arg).
-      2) Run the single_experiment.
-      3) Write final results to JSON (experiment_output.json).
+    Interactive experiment loop:
+    - Runs an experiment based on a provided config file
+    - Saves output JSON and last-state expressions
+    - Offers to continue from last state or start a new config
     """
     if len(sys.argv) < 2:
         print("Usage: python script.py <experiment_config.json>")
         sys.exit(1)
 
+    run_id = 1
     config_path = sys.argv[1]
-    config = read_config_from_json(config_path)
-    print("\n--- Running Experiment ---")
-    experiment_results = single_experiment(config)
 
-    # Print collisions_data summary
-    print("\nExperiment complete. Summary of final collisions_data keys:")
-    for key in experiment_results["collisions_data"]:
-        print("  ", key)
+    while True:
+        config = read_config_from_json(config_path)
+        print(f"\n--- Running Experiment #{run_id} ---")
+        experiment_results = single_experiment(config)
 
-    # Save entire experiment results
-    results_file = "experiment_output.json"
-    with open(results_file, "w") as f:
-        json.dump(experiment_results, f, indent=4)
+        # Print final collision keys
+        if "collisions_data" in experiment_results:
+            print("\nExperiment complete. Final collision keys:")
+            for key in experiment_results["collisions_data"]:
+                print("  ", key)
 
-    print(f"\nExperiment results saved to '{results_file}'.\n")
+        # Save results to JSON
+        output_file = f"experiment_output_{run_id}.json"
+        with open(output_file, "w") as f:
+            json.dump(experiment_results, f, indent=4)
+        print(f"\n✅ Experiment results saved to: {output_file}")
 
+        # Extract and save last state
+        last_state = experiment_results.get("last_state")
+        if last_state:
+            last_key = list(last_state.keys())[0]
+            final_exprs = last_state[last_key].get("state", [])
+            txt_file = f"last_state_exprs_{run_id}.txt"
+            with open(txt_file, "w") as f:
+                for expr in final_exprs:
+                    f.write(expr + "\n")
+            print(f"✅ Final state expressions saved to: {txt_file}")
+        else:
+            print("⚠️  No last state found — cannot continue from this run.")
+            break
+
+        # Ask user what they want to do next
+        print("\nWhat would you like to do next?")
+        print("1) Continue experiment from last state")
+        print("2) Start a new experiment with a different config")
+        print("3) Exit")
+        choice = input("Enter your choice (1/2/3): ").strip()
+
+        if choice == "1":
+            # Create next config file
+            run_id += 1
+            config_path = f"auto_followup_config_{run_id}.json"
+            next_config = {
+                "total_collisions": config.get("total_collisions", 50),
+                "polling_frequency": config.get("polling_frequency", 10),
+                "input_expressions": {
+                    "generator": "from_file",
+                    "params": {
+                        "filename": txt_file
+                    }
+                },
+                "measurements": config.get("measurements", [
+                    "entropy", "unique_expressions", "len_unique_expressions"
+                ])
+            }
+
+            with open(config_path, "w") as f:
+                json.dump(next_config, f, indent=4)
+
+            print(f"\n🧪 New follow-up config created: {config_path}")
+
+        elif choice == "2":
+            new_path = input("Enter the new config filename (e.g. new_experiment.json): ").strip()
+            if not os.path.exists(new_path):
+                print(f"❌ File '{new_path}' not found. Exiting.")
+                break
+            config_path = new_path
+            run_id = 1  # Reset counter for new chain
+
+        else:
+            print("👋 Exiting experiment loop.")
+            break
 
 if __name__ == "__main__":
     main()
+
