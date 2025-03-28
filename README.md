@@ -1,3 +1,19 @@
+# To do list 3/28
+
+## Cole
+- Set up UV app
+- debug the lambda unicode write issue
+- modify Soup class so that perturb is correct
+
+## Library
+- Wait for update to perturb in the Soup class
+- Write experiment outputs to sqlite (consider how to do it for inputs)
+
+## Visualization
+- Integrate the current library
+- Read SQLite
+
+
 # To do list 2/28
 
 ## Library
