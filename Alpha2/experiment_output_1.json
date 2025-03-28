@@ -1,0 +1,256 @@
+{
+    "config": {
+        "total_collisions": 1000,
+        "polling_frequency": 100,
+        "input_expressions": {
+            "generator": "BTree",
+            "params": {
+                "size": 5,
+                "freevar_generation_probability": 0.5,
+                "max_free_vars": 3,
+                "standardization": "prefix",
+                "seed": 42,
+                "num_expressions": 10
+            }
+        },
+        "measurements": [
+            "entropy",
+            "unique_expressions",
+            "len_unique_expressions"
+        ]
+    },
+    "collisions_data": {
+        "collision_100": {
+            "state": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.\u03bbd.d",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.\u03bbc.b (b (\u03bbd.\u03bbe.\u03bbf.f))",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.a (a (\u03bbc.\u03bbd.\u03bbe.e))",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.a (a (\u03bbc.\u03bbd.\u03bbe.e))"
+            ],
+            "entropy": 2.1219279766082764,
+            "unique_expressions": [
+                "\u03bba.\u03bbb.\u03bbc.\u03bbd.d",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.\u03bbc.b (b (\u03bbd.\u03bbe.\u03bbf.f))",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.a (a (\u03bbc.\u03bbd.\u03bbe.e))"
+            ],
+            "len_unique_expressions": 5
+        },
+        "collision_200": {
+            "state": [
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.a (a (\u03bbc.\u03bbd.\u03bbe.e))",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.\u03bbc.b (b (\u03bbd.\u03bbe.\u03bbf.f))",
+                "\u03bba.\u03bbb.\u03bbc.\u03bbd.d",
+                "\u03bba.\u03bbb.a (a (\u03bbc.\u03bbd.\u03bbe.e))",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b"
+            ],
+            "entropy": 2.1219282150268555,
+            "unique_expressions": [
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.\u03bbc.\u03bbd.d",
+                "\u03bba.\u03bbb.\u03bbc.b (b (\u03bbd.\u03bbe.\u03bbf.f))",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.a (a (\u03bbc.\u03bbd.\u03bbe.e))"
+            ],
+            "len_unique_expressions": 5
+        },
+        "collision_300": {
+            "state": [
+                "\u03bba.\u03bbb.a (a (\u03bbc.\u03bbd.\u03bbe.e))",
+                "\u03bba.\u03bbb.\u03bbc.\u03bbd.d",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.a (a (\u03bbc.\u03bbd.\u03bbe.e))"
+            ],
+            "entropy": 1.760964035987854,
+            "unique_expressions": [
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.a (a (\u03bbc.\u03bbd.\u03bbe.e))",
+                "\u03bba.\u03bbb.\u03bbc.\u03bbd.d",
+                "\u03bba.\u03bbb.b"
+            ],
+            "len_unique_expressions": 4
+        },
+        "collision_400": {
+            "state": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.\u03bbd.d",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b"
+            ],
+            "entropy": 0.9219280481338501,
+            "unique_expressions": [
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.\u03bbc.\u03bbd.d",
+                "\u03bba.\u03bbb.b"
+            ],
+            "len_unique_expressions": 3
+        },
+        "collision_500": {
+            "state": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.\u03bbd.d",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b"
+            ],
+            "entropy": 1.1567796468734741,
+            "unique_expressions": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.\u03bbc.\u03bbd.d"
+            ],
+            "len_unique_expressions": 3
+        },
+        "collision_600": {
+            "state": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c"
+            ],
+            "entropy": 0.721928060054779,
+            "unique_expressions": [
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b"
+            ],
+            "len_unique_expressions": 2
+        },
+        "collision_700": {
+            "state": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b"
+            ],
+            "entropy": 0.721928060054779,
+            "unique_expressions": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c"
+            ],
+            "len_unique_expressions": 2
+        },
+        "collision_800": {
+            "state": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b"
+            ],
+            "entropy": 0.721928060054779,
+            "unique_expressions": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c"
+            ],
+            "len_unique_expressions": 2
+        },
+        "collision_900": {
+            "state": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b"
+            ],
+            "entropy": 0.4689956307411194,
+            "unique_expressions": [
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b"
+            ],
+            "len_unique_expressions": 2
+        },
+        "collision_1000": {
+            "state": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b"
+            ],
+            "entropy": 0.4689956307411194,
+            "unique_expressions": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c"
+            ],
+            "len_unique_expressions": 2
+        }
+    },
+    "last_state": {
+        "collision_1000": {
+            "state": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b"
+            ],
+            "entropy": 0.4689956307411194,
+            "unique_expressions": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c"
+            ],
+            "len_unique_expressions": 2
+        }
+    }
+}

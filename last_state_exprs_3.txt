@@ -1,0 +1,10 @@
+λa.λb.λc.λd.λe.λf.λg.λh.λi.e
+λa.λb.λc.λd.λe.λf.λg.λh.λi.λj.λk.λl.λm.λn.j
+λa.λb.λc.λd.λe.λf.λg.c
+λa.λb.λc.λd.λe.λf.λg.λh.λi.e
+λa.λb.λc.λd.λe.λf.λg.λh.λi.λj.λk.λl.λm.λn.j
+λa.λb.λc.λd.λe.λf.λg.λh.λi.λj.λk.λl.λm.λn.λo.k
+λa.λb.λc.λd.λe.λf.λg.λh.d
+λa.λb.λc.λd.λe.λf.λg.λh.λi.λj.λk.λl.λm.λn.λo.λp.λq.λr.n
+λa.λb.λc.λd.λe.λf.λg.λh.λi.λj.λk.λl.λm.i
+λa.λb.λc.λd.λe.λf.λg.λh.λi.λj.λk.λl.λm.λn.j

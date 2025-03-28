@@ -1,6 +1,6 @@
 {
-    "total_collisions": 50,
-    "polling_frequency": 10,
+    "total_collisions": 1000,
+    "polling_frequency": 100,
     "input_expressions": {
         "generator": "from_file",
         "params": {

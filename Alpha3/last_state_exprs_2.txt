@@ -1,0 +1,50 @@
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a (λb.λc.c) (λb.b)
+λa.a (a (λb.b (b (λc.c c))))
+λa.a (a (λb.b (b (λc.c c))))
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a a
+λa.a a
+λa.a a
+λa.a a
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a (λb.λc.c) (λb.b)
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a a
+λa.a a
+λa.a (a (λb.b b))
+λa.a (a (λb.b (b (λc.c c))))
+λa.a a
+λa.a (a (λb.b (b (λc.c c))))
+λa.a (a (λb.b (b (λc.c c))))
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a a
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a (a (λb.b b))
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a a
+λa.a (a (λb.b (b (λc.c c))))
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a (a (λb.b (b (λc.c c))))
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a a
+λa.a a
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a (λb.λc.c) (λb.b)
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a a
+λa.a (a (λb.b (b (λc.c c))))
+λa.a (a (λb.b (b (λc.c c))))
+λa.a a
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))
+λa.a a
+λa.a (a (λb.b (b (λc.c (c (λd.d d))))))

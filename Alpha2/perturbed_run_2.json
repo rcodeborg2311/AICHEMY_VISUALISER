@@ -1,0 +1,74 @@
+{
+    "info": {
+        "original_experiment_file": "Alpha2/experiment_output_1.json",
+        "collision_time_used": "collision_500",
+        "extra_random_expressions": 300,
+        "random_expr_max_depth": 200,
+        "collisions_after_perturb": 3
+    },
+    "collisions_data": {
+        "collision_1": {
+            "state": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.\u03bbd.d",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b"
+            ],
+            "entropy": 1.1567796468734741,
+            "unique_expressions": [
+                "\u03bba.\u03bbb.\u03bbc.\u03bbd.d",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b"
+            ],
+            "len_unique_expressions": 3
+        },
+        "collision_2": {
+            "state": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.\u03bbd.d",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b"
+            ],
+            "entropy": 1.1567796468734741,
+            "unique_expressions": [
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.\u03bbd.d"
+            ],
+            "len_unique_expressions": 3
+        },
+        "collision_3": {
+            "state": [
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.\u03bbd.d",
+                "\u03bba.\u03bbb.\u03bbc.c"
+            ],
+            "entropy": 1.1567796468734741,
+            "unique_expressions": [
+                "\u03bba.\u03bbb.\u03bbc.\u03bbd.d",
+                "\u03bba.\u03bbb.b",
+                "\u03bba.\u03bbb.\u03bbc.c"
+            ],
+            "len_unique_expressions": 3
+        }
+    }
+}
